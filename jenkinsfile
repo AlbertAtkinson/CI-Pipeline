@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  stages {
+    stage('Run tests') {
+      steps {
+      sh "./scripts/testscript.sh"
+      }
+      }
+    // stage('Push images to dockerhub') {
+    //   steps {
+    //   sh "./scripts/dockerhub.sh"
+    //   }
+    //   }  
+    // stage('Deploy kubernetes') {
+    //   steps {
+    //   sh "./scripts/deploykube.sh"
+    //   }
+    //   }
+  }
+}
