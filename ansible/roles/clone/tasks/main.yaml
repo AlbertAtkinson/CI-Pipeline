@@ -1,0 +1,4 @@
+- name: "Clone Repo"
+  git:
+    repo: "{{ repository }}"
+    dest: "{{ destination }}"

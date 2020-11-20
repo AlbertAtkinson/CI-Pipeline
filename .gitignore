@@ -1,3 +1,7 @@
 /venv/
 **/**/__pycache__/
 **/**/.coverage
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+variables.tf
