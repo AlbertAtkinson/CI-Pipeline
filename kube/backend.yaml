@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: pipeline
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: aatkinson42/back-end
+        ports:
+        - containerPort: 5001
+        env:
+        - name: DATABASE_URI  
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: DATABASE_URI 
+        - name: TEST_DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: TEST_DATABASE_URI
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: SECRET_KEYapiVersion: v1
+kind: Service
+metadata:
+  name: backend   
+  namespace: pipeline
+  labels:
+    app: backend
+spec:
+  selector:
+    app: backend   
+  ports:
+  - protocol: TCP
+    port: 5001
+    targetPort: 5001
+  type: ClusterIP
