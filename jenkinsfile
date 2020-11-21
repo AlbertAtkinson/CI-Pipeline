@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Run tests') {
       steps {
-      sh "ssh -oStrictHostKeyChecking=no ubuntu@${TEST_IP}"
+      sh "ssh ubuntu@176.34.198.231"
       sh "chmod a+x ./scripts/testscript.sh"
       sh "sudo bash ./scripts/testscript.sh"
       }
