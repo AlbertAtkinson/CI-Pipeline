@@ -12,7 +12,7 @@ pipeline {
     stage('Run tests') {
       steps {
       sh "chmod a+x ./scripts/testscript.sh"
-      sh "./scripts/testscript.sh"
+      sh "sudo bash ./scripts/testscript.sh"
       }
       }
     // stage('Push images to dockerhub') {
