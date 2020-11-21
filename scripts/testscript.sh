@@ -1,7 +1,7 @@
 #! /bin/bash
 
 ssh ubuntu@${TEST_IP}
-git clone --branch kubernetes https://github.com/AAtkinsonQA/CI-Pipeline.git
+git clone --branch jenkinstest https://github.com/AAtkinsonQA/CI-Pipeline.git
 cd CI-Pipeline
 sudo -E TEST_DATABASE_URI=${TEST_DATABASE_URI} -E SECRET_KEY=${SECRET_KEY} docker-compose up -d
 echo "Running Tests: "
