@@ -19,13 +19,13 @@ services:
       published: 5000
       protocol: tcp
     container_name: frontend
-  # nginx:
-  #   build: ./nginx
-  #   ports:
-  #   - target: 80
-  #     published: 80
-  #     protocol: tcp
-  #   volumes:
-  #   - type: bind
-  #     source: ./nginx/nginx.conf
-  #     target: /etc/nginx/nginx.conf
+  nginx:
+    build: ./nginx
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
