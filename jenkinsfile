@@ -11,20 +11,20 @@ pipeline {
   stages {
     stage('Run tests') {
       steps {
-      sh "ssh ubuntu@34.246.161.244"
+      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@34.246.161.244"
       sh "chmod a+x ./scripts/testscript.sh"
       sh "sudo bash ./scripts/testscript.sh"
       }
       }
-    // stage('Push images to dockerhub') {
-    //   steps {
-    //   sh "./scripts/dockerhub.sh"
-    //   }
-    //   }  
-    // stage('Deploy kubernetes') {
-    //   steps {
-    //   sh "./scripts/deploykube.sh"
-    //   }
-    //   }
+    stage('Push images to dockerhub') {
+      steps {
+      sh "./scripts/dockerhub.sh"
+      }
+      }  
+    stage('Deploy kubernetes') {
+      steps {
+      sh "./scripts/deploykube.sh"
+      }
+      }
   }
 }
