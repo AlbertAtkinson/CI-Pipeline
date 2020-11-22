@@ -1,5 +1,6 @@
 #! /bin/bash
 
+ip a
 sudo rm -r CI-Pipeline
 git clone --branch testconf https://github.com/AAtkinsonQA/CI-Pipeline.git
 cd CI-Pipeline
