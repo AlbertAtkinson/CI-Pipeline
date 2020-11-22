@@ -7,9 +7,8 @@ mysql -h k8s-rds.cbf9oalhjjnm.eu-west-1.rds.amazonaws.com -P 3306 -u root -ppass
 mysql -h test-rds.cbf9oalhjjnm.eu-west-1.rds.amazonaws.com -P 3306 -u root -ppass1234 < database/Create.sql
 sudo docker-compose up -d --build
 echo "Running Tests: "
-sudo docker exec frontend bash -c "pytest tests/ --cov application" | grep passed
-sudo docker exec backend bash -c "pytest tests/ --cov application" | grep passed
-sudo docker-compose down
+sudo docker exec frontend bash -c "pytest tests/ --cov application"
+sudo docker exec backend bash -c "pytest tests/ --cov application"
 cd ..
 ls
 # exit
