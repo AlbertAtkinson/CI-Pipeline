@@ -18,6 +18,7 @@ spec:
       containers:
       - name: backend
         image: aatkinson42/back-end
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 5001
         env:
