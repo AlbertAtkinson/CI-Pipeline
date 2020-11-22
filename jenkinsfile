@@ -1,13 +1,13 @@
 pipeline {
   agent any
-  environment {
+  // environment {
       // DOCKER_USER=credentials('docker-user')
       // DOCKER_PASSWORD=credentials('docker-pass')
       // DATABASE_URI=credentials('DATABASE_URI')
       // TEST_DATABASE_URI=credentials('TEST_DATABASE_URI')
       // SECRET_KEY=credentials('SECRET_KEY')
       // TEST_IP=credentials('TEST_IP')
-  }
+  // }
   stages {
     stage('Run tests') {
       steps {
