@@ -8,9 +8,9 @@ services:
       published: 5001
       protocol: tcp
     environment:
-      DATABASE_URI: $(DATABASE_URI)
-      TEST_DATABASE_URI: $(TEST_DATABASE_URI)
-      SECRET_KEY: $(SECRET_KEY)
+      DATABASE_URI: ${DATABASE_URI}
+      TEST_DATABASE_URI: ${TEST_DATABASE_URI}
+      SECRET_KEY: ${SECRET_KEY}
     
   frontend:
     build: ./frontend
