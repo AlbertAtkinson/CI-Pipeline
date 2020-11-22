@@ -27,7 +27,6 @@ The requirements of the project are as follows:
 * As part of the project, you need to create an Ansible Playbook that will provision the environment that your CI Server needs to run.
 * The project must make use of a reverse proxy to make your application accessible to the user.
 
-
 ## Architecture
 ### Infrastructure
 Pictured below is the MVP structure for the project with a manual kubernetes cluster and test vm:
@@ -50,6 +49,12 @@ A Jira, agile-scrum board was used to track the progress of the project (picture
 
 The board has been designed such that elements of the project move from left to right from their point of conception to being finished and fully implemented. Each card has an epic associated with it according to which section of the project it pertains. These epics are:
 
+* *Deploy Terraform*
+* *Configure Ansible*
+* *Create Jenkins and Create Test Scripts*
+* *Configure Kubernetes*
+* *Presentation and Documentation*
+
 ## Testing
 
 The app is tested on the jenkins pipeline with pytest. Jenkins goes into the testvm and builds the images/databases. See below for test coverage on the frontend and backend:
@@ -59,6 +64,7 @@ The app is tested on the jenkins pipeline with pytest. Jenkins goes into the tes
 ![terraform apply](https://i.imgur.com/nsKKrR1.png)
 
 ![browser](https://i.imgur.com/MJmw6LH.png)
+![jenkins output](https://i.imgur.com/oOrvFAT.png)
 
 ## Authors
 Atkinson Albert
