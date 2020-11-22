@@ -9,7 +9,7 @@ sudo docker-compose up -d --build
 echo "Running Tests: "
 sudo docker exec frontend bash -c "pytest tests/ --cov application"
 sudo docker exec backend bash -c "pytest tests/ --cov application"
-sudo docker-compose down
+# sudo docker-compose down
 cd ..
 rm -rf CI-Pipeline
 ls
