@@ -1,18 +1,10 @@
 pipeline {
   agent any
-  // environment {
-      // DOCKER_USER=credentials('docker-user')
-      // DOCKER_PASSWORD=credentials('docker-pass')
-      // DATABASE_URI=credentials('DATABASE_URI')
-      // TEST_DATABASE_URI=credentials('TEST_DATABASE_URI')
-      // SECRET_KEY=credentials('SECRET_KEY')
-      // TEST_IP=credentials('TEST_IP')
-  // }
   stages {
     stage('Run tests') {
       steps {
       sh "chmod a+x ./scripts/testscript.sh"
-      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@34.245.226.228 < ./scripts/testscript.sh"
+      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@{TEST_IP} < ./scripts/testscript.sh"
       }
       }
     stage('Push images to dockerhub') {
