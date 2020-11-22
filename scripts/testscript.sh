@@ -10,7 +10,7 @@ sudo -E DATABASE_URI=${DATABASE_URI} -E TEST_DATABASE_URI=${TEST_DATABASE_URI} -
 echo "Running Tests: "
 sudo docker exec frontend bash -c "pytest tests/ --cov application"
 sudo docker exec backend bash -c "pytest tests/ --cov application"
-# sudo docker-compose down
+sudo docker-compose down
 cd ..
 rm -rf CI-Pipeline
 ls

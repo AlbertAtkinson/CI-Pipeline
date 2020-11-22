@@ -2,7 +2,7 @@ version: '3.7'
 services:
   backend:
     build: ./backend
-    container_name: backend:latest
+    container_name: backend
     ports:
     - target: 5001
       published: 5001
@@ -18,7 +18,7 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
-    container_name: frontend:latest
+    container_name: frontend
   # nginx:
   #   build: ./nginx
   #   ports:
