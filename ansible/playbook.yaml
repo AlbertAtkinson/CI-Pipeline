@@ -10,6 +10,7 @@
     - jenkins
     - mysql
     - aws
+    - kube
 - hosts: testvm
   become: true
   roles:
