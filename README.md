@@ -41,27 +41,22 @@ My project made use of terraform to configure an automated kubernetes cluster an
 2. The backend service using a database connection to query the database and return a result.
 3. The frontend service serving up a simple HTML (`index.html`) to display the result.
 
+## Project Planning
+
+A Jira, agile-scrum board was used to track the progress of the project (pictured below). You can find the link to this board here: https://aatkinson.atlassian.net/jira/software/projects/WOP/boards/2/roadmap
+
+![Jira Roadmap](https://i.imgur.com/VXdmhKq.png)
+![Jira Board](https://i.imgur.com/Z97X0EL.png)
+
+The board has been designed such that elements of the project move from left to right from their point of conception to being finished and fully implemented. Each card has an epic associated with it according to which section of the project it pertains. These epics are:
+
 ## Testing
 
+The app is tested on the jenkins pipeline with pytest. Jenkins goes into the testvm and builds the images/databases. See below for test coverage on the frontend and backend:
+![testing coverage](https://i.imgur.com/EwHLXDP.png)
 ![Jira Roadmap](https://i.imgur.com/Zmfr0KU.png)
-Unit Tests have been included for both the frontend and backend services.
 
-To test the backend service, you will need two things:
-
-1. A database called `testdb`
-2. A `TEST_DATABASE_URI` environment variable, which contains the database connection for the `testdb` database.
-
-You can run the tests using the command:
-
-```
-pytest
-```
-
-To generate a coverage report, you will need to run:
-
-```
-pytest --cov application
-```
+![terraform apply](https://i.imgur.com/nsKKrR1.png)
 
 ## Authors
 Atkinson Albert
