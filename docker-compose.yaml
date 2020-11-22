@@ -2,15 +2,15 @@ version: '3.7'
 services:
   backend:
     build: ./backend
-    container_name: backend
+    container_name: backend:latest
     ports:
     - target: 5001
       published: 5001
       protocol: tcp
     environment:
-      DATABASE_URI: "mysql+pymysql://root:pass5678@k8s-rds.cbf9oalhjjnm.eu-west-1.rds.amazonaws.com:3306/testdb"
-      TEST_DATABASE_URI: "mysql+pymysql://root:pass1234@test-rds.cbf9oalhjjnm.eu-west-1.rds.amazonaws.com:3306/testdb"
-      SECRET_KEY: "urhuthguhtvrtvtnefro"
+      DATABASE_URI: $(DATABSE_URI)
+      TEST_DATABASE_URI: $(TEST_DATABASE_URI)
+      SECRET_KEY: $(SECRET_KEY)
     
   frontend:
     build: ./frontend
@@ -18,4 +18,14 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
-    container_name: frontend
+    container_name: frontend:latest
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #   - target: 80
+  #     published: 80
+  #     protocol: tcp
+  #   volumes:
+  #   - type: bind
+  #     source: ./nginx/nginx.conf
+  #     target: /etc/nginx/nginx.conf

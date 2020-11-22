@@ -13,3 +13,4 @@ sudo docker-compose down
 cd ..
 rm -rf CI-Pipeline
 ls
+exit
