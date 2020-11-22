@@ -11,9 +11,8 @@ pipeline {
   stages {
     stage('Run tests') {
       steps {
-      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@34.246.161.244"
       sh "chmod a+x ./scripts/testscript.sh"
-      sh "sudo bash ./scripts/testscript.sh"
+      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@34.246.161.244 < testscript.sh"
       }
       }
     stage('Push images to dockerhub') {
