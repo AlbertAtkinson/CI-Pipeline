@@ -58,6 +58,8 @@ The app is tested on the jenkins pipeline with pytest. Jenkins goes into the tes
 
 ![terraform apply](https://i.imgur.com/nsKKrR1.png)
 
+![browser](https://i.imgur.com/MJmw6LH.png)
+
 ## Authors
 Atkinson Albert
 
