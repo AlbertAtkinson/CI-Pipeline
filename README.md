@@ -41,49 +41,9 @@ My project made use of terraform to configure an automated kubernetes cluster an
 2. The backend service using a database connection to query the database and return a result.
 3. The frontend service serving up a simple HTML (`index.html`) to display the result.
 
-### Database Connection
-
-The database connection is handled in the `./backend/application/__init__.py` file.
-
-A typical Database URI follows the form:
-
-```
-mysql+pymysql://[db-user]:[db-password]@[db-host]/[db-name]
-```
-
-An example of this would be:
-
-```
-mysql+pymysql://root:password@mysql:3306/orders
-```
-
-### Environment Variables
-
-The application makes use of **2 environment variables**:
-
-- `DATABASE_URI`: as described above
-- `SECRET_KEY`: any *random string* will work here
-
-### Running a Flask Application
-
-Typically, to run a Flask application, you would:
-
-1. Install the pip dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-2. Run the application:
-
-```
-python3 app.py
-```
-
-![app-diagram](https://i.imgur.com/wnbDazy.png)
-
 ## Testing
 
+![Jira Roadmap](https://i.imgur.com/Zmfr0KU.png)
 Unit Tests have been included for both the frontend and backend services.
 
 To test the backend service, you will need two things:
@@ -107,4 +67,4 @@ pytest --cov application
 Atkinson Albert
 
 ## Acknowledgements
-Luke Benson, Trainer
+Benson Luke, Trainer Aguila Carlos
