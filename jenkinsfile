@@ -18,11 +18,13 @@ pipeline {
       }
     stage('Push images to dockerhub') {
       steps {
+      sh "chmod a+x ./scripts/dockerhub.sh"
       sh "./scripts/dockerhub.sh"
       }
       }  
     stage('Deploy kubernetes') {
       steps {
+      sh "chmod a+x ./scripts/deploykube.sh"
       sh "./scripts/deploykube.sh"
       }
       }
