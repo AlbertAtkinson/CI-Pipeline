@@ -36,6 +36,8 @@ kind: Service
 metadata:
   name: nginx-lb
   namespace: pipeline
+  labels:
+    app: nginx
 spec:
   selector:
     app: nginx
