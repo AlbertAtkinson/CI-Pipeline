@@ -1,0 +1,2 @@
+- name: "Install mysql"
+  script: /home/ubuntu/CI-Pipeline/scripts/mysqlscript.sh

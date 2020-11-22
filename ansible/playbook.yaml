@@ -8,3 +8,10 @@
         - repository: https://github.com/AAtkinsonQA/CI-Pipeline.git
         - destination: /home/ubuntu/flask-app
     - jenkins
+    - mysql
+    - aws
+- hosts: testvm
+  become: true
+  roles:
+    - mysql
+    - docker

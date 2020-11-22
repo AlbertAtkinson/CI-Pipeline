@@ -1,2 +1,2 @@
-- name: "Run install scripts"
+- name: "Install docker"
   script: /home/ubuntu/CI-Pipeline/scripts/dockerscript.sh

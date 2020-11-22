@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Run tests') {
       steps {
-      sh "ssh ubuntu@{TEST_IP}"
+      sh "ssh ubuntu@34.246.161.244"
       sh "chmod a+x ./scripts/testscript.sh"
       sh "sudo bash ./scripts/testscript.sh"
       }

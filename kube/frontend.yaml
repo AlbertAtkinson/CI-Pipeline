@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: aatkinson42/front-end
+        image: aatkinson42/front-end:latest
         ports:
         - containerPort: 5000
 apiVersion: v1

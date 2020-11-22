@@ -1,0 +1,2 @@
+- name: "Install awscli"
+  script: /home/ubuntu/CI-Pipeline/scripts/aws.sh
