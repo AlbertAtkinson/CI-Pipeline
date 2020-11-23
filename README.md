@@ -92,10 +92,6 @@ My jenkins pipeline uses a webhook to create a new build which tests the fronten
 
 ![browser](https://i.imgur.com/MJmw6LH.png)
 
-#### GitHub webhook:
-
-![webhook](https://i.imgur.com/3IgbS78.png)
-
 ## Security
 
 I used .gitignore to stop my credentials and private information from being pushed to github. This allowed me to automate signing into docker hub:
