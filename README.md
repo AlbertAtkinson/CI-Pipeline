@@ -1,9 +1,5 @@
 # DevOps CI-Pipeline Practical Project
 
-This application is a simple [Flask application](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application), ready to be deployed, for your SFIA2 project.
-
-The following information should be everything you need to complete the project.
-
 ## Brief
 
 Overall Objective:
@@ -30,22 +26,19 @@ The requirements of the project are as follows:
 ## Architecture
 ### Infrastructure
 Pictured below is the MVP structure for the project with a manual kubernetes cluster and test vm:
+
 ![mvp-diagram](https://i.imgur.com/i5qfOas.png)
 
 My project made use of terraform to configure an automated kubernetes cluster and test vm. I used ansible to configure my vms:
-![stretch-digram](https://i.imgur.com/Q5zljVl.png)
 
-### The application works by:
-1. The frontend service making a GET request to the backend service. 
-2. The backend service using a database connection to query the database and return a result.
-3. The frontend service serving up a simple HTML (`index.html`) to display the result.
+![stretch-digram](https://i.imgur.com/Q5zljVl.png)
 
 ## Project Planning
 
 A Jira, agile-scrum board was used to track the progress of the project (pictured below). You can find the link to this board here: https://aatkinson.atlassian.net/jira/software/projects/WOP/boards/2/roadmap
 
-![Jira Roadmap](https://i.imgur.com/VXdmhKq.png)
-![Jira Board](https://i.imgur.com/Z97X0EL.png)
+[Epics](https://i.imgur.com/LaPjILK.png)
+[Jira Board](https://i.imgur.com/Zmfr0KU.png)
 
 The board has been designed such that elements of the project move from left to right from their point of conception to being finished and fully implemented. Each card has an epic associated with it according to which section of the project it pertains. These epics are:
 
@@ -55,19 +48,72 @@ The board has been designed such that elements of the project move from left to 
 * *Configure Kubernetes*
 * *Presentation and Documentation*
 
-## Testing
+## Risk Assessment
 
-The app is tested on the jenkins pipeline with pytest. Jenkins goes into the testvm and builds the images/databases. See below for test coverage on the frontend and backend:
-![testing coverage](https://i.imgur.com/EwHLXDP.png)
-![Jira Roadmap](https://i.imgur.com/Zmfr0KU.png)
+The risk assessment for this project can be found in the screenshot below:
+
+## Infrastructure 
+
+Terraform was used to automate the building of vpc,subnets etc. in the AWS console and allow me to rebuild my infrastructure much faster. 
 
 ![terraform apply](https://i.imgur.com/nsKKrR1.png)
 
-![browser](https://i.imgur.com/MJmw6LH.png)
+I used ansible to configure the vms and run install scripts. 
+
+Unfortunately, the project wasn't entirely automated and manual configuration had to be done after building the infrastructure:
+
+* SSH into the Jenkins VM as ubuntu
+* Add jenkins to sudoers with ALL=(ALL:ALL) NOPASSWD:ALL and to the docker group sudo usermod -aG docker jenkins
+* Switch to jenkins user
+* Authenticate with aws cli and connect to the cluster
+* Retrieve the initial admin password with sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+* Generate a public key in the jenkins user and add it to the 'authorized_keys' in the testvm
+* Configure new variables e.g. IP, URI
+* Go to {jenkins-ip}:8080 and install jenkins plugins
+* Build jenkins pipeline on master branch and create a webhook in github
+* Before building pipeline, update config file and run ansible playbook
+* Run build to create application
+
+## Testing
+
+The app is tested on the jenkins pipeline with pytest. Jenkins goes into the testvm and builds the images/databases. See below for test coverage on the frontend and backend:
+
+![testing coverage](https://i.imgur.com/EwHLXDP.png)
+
+### Jenkins webhooks
+
+My jenkins pipeline uses a webhook to create a new build which tests the frontend and backend before pushing the images to dockerhub and applying the changes with kubernetes. This means the application is always updated to the recent code. I access the application with the load balancer endpoint:
+
 ![jenkins output](https://i.imgur.com/oOrvFAT.png)
+
+Browser output of application:
+
+![browser](https://i.imgur.com/MJmw6LH.png)
+
+GitHub webhook:
+
+![webhook](https://i.imgur.com/3IgbS78.png)
+
+## Security
+
+I used .gitignore to stop my credentials and private information from being pushed to github. This allowed me to automate signing into docker hub:
+[docker login](https://i.imgur.com/bakYiCu.png)
+It also allowed me to refer to database URIs and transfer secret keys for security whilst not revealing the variables and jeopardising the whole project:
+[URI credentials](https://i.imgur.com/CkhCkCQ.png)
+
+My ansible used an inventory which linked to a config file (.ssh/config). This allowed me to run ansible without having to push the IP addresses of the vms.
+
+### Future Improvements
+
+There are a number of improvements I would like to implement:
+
+* Eliminate manual tasks seen above such as configuring jenkins as a sudoer for example.
+* Create more thorough testing for the application instead of just Unit tests.
+* Store more variables in jenkins credentials as it's more secure.
+* Run a more complex application so that the project can be demonstrated for a viable product.
 
 ## Authors
 Atkinson Albert
 
 ## Acknowledgements
-Benson Luke, Trainer Aguila Carlos
+Benson Luke, Trainer
