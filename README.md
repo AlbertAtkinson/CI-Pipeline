@@ -102,7 +102,7 @@ It also allowed me to refer to database URIs and transfer secret keys for securi
 
 ![URI credentials](https://i.imgur.com/CkhCkCQ.png)
 
-My ansible used an inventory which linked to a config file (.ssh/config). This allowed me to run ansible without having to push the IP addresses of the vms.
+My ansible used an inventory which linked to a config file (.ssh/config). This allowed me to run ansible without having to push the IP addresses of the vms. My terraform made use of variables to hide IPs, endpoints and role arns.
 
 ### Future Improvements
 
