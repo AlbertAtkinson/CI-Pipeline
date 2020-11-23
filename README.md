@@ -88,19 +88,22 @@ My jenkins pipeline uses a webhook to create a new build which tests the fronten
 
 ![jenkins output](https://i.imgur.com/oOrvFAT.png)
 
-Browser output of application:
+#### Browser output of application:
 
 ![browser](https://i.imgur.com/MJmw6LH.png)
 
-GitHub webhook:
+#### GitHub webhook:
 
 ![webhook](https://i.imgur.com/3IgbS78.png)
 
 ## Security
 
 I used .gitignore to stop my credentials and private information from being pushed to github. This allowed me to automate signing into docker hub:
+
 ![docker login](https://i.imgur.com/bakYiCu.png)
+
 It also allowed me to refer to database URIs and transfer secret keys for security whilst not revealing the variables and jeopardising the whole project:
+
 ![URI credentials](https://i.imgur.com/CkhCkCQ.png)
 
 My ansible used an inventory which linked to a config file (.ssh/config). This allowed me to run ansible without having to push the IP addresses of the vms.
