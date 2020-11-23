@@ -4,7 +4,7 @@ pipeline {
     stage('Run tests') {
       steps {
       sh "chmod a+x ./scripts/testscript.sh"
-      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@{TEST_IP} < ./scripts/testscript.sh"
+      sh "ssh -i /home/jenkins/.ssh/id_rsa ubuntu@3.250.134.212 < ./scripts/testscript.sh"
       }
       }
     stage('Push images to dockerhub') {
