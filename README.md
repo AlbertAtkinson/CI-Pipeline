@@ -35,10 +35,10 @@ My project made use of terraform to configure an automated kubernetes cluster an
 
 ## Project Planning
 
-A Jira, agile-scrum board was used to track the progress of the project (pictured below). You can find the link to this board here: https://aatkinson.atlassian.net/jira/software/projects/WOP/boards/2/roadmap
+A Jira, agile-scrum board was used to track the progress of the project (pictured below). You can find the link to this board here: https://badamiec.atlassian.net/jira/software/projects/CPP/boards/6/roadmap
 
-[Epics](https://i.imgur.com/LaPjILK.png)
-[Jira Board](https://i.imgur.com/Zmfr0KU.png)
+![Epics](https://i.imgur.com/LaPjILK.png)
+![Jira Board](https://i.imgur.com/Zmfr0KU.png)
 
 The board has been designed such that elements of the project move from left to right from their point of conception to being finished and fully implemented. Each card has an epic associated with it according to which section of the project it pertains. These epics are:
 
@@ -51,6 +51,8 @@ The board has been designed such that elements of the project move from left to 
 ## Risk Assessment
 
 The risk assessment for this project can be found in the screenshot below:
+
+![Risk assessment](https://i.imgur.com/YkJlUQp.png)
 
 ## Infrastructure 
 
@@ -97,9 +99,9 @@ GitHub webhook:
 ## Security
 
 I used .gitignore to stop my credentials and private information from being pushed to github. This allowed me to automate signing into docker hub:
-[docker login](https://i.imgur.com/bakYiCu.png)
+![docker login](https://i.imgur.com/bakYiCu.png)
 It also allowed me to refer to database URIs and transfer secret keys for security whilst not revealing the variables and jeopardising the whole project:
-[URI credentials](https://i.imgur.com/CkhCkCQ.png)
+![URI credentials](https://i.imgur.com/CkhCkCQ.png)
 
 My ansible used an inventory which linked to a config file (.ssh/config). This allowed me to run ansible without having to push the IP addresses of the vms.
 
